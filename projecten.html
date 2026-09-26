@@ -27,27 +27,14 @@
  <section>
         <h2>Projecten</h2>
 
-        <article>
-            <h3>Project 1: Persoonlijke portfolio website</h3>
-            <p>Een responsieve portfolio-site met meerdere pagina's, duidelijke navigatie en een stijlvolle, toegankelijke opzet</p>
-           
-            <p class="tags">
-    <span>#HTML5</span>
-    <span>#CSS3</span>
-    <span>#Git</span>
-</p>
-        </article>
+        <label for="project-filter">Toon projecten:</label>
+<select id="project-filter">
+    <option value="alle">Alle projecten</option>
+    <option value="portfolio">Portfolio</option>
+    <option value="basis">HTML & CSS basis</option>
+</select>
 
-        <article>
-    <h3>Project 2: HTML & CSS basis</h3>
-    <p>Eerste opdracht voor het vak WPFW. Gericht op taken binnen HTML en CSS.</p>
-   
-    <p class="tags">
-    <span>#HTML5</span>
-    <span>#CSS3</span>
-    <span>#Git</span>
-</p>
-</article>
+<div id="projecten-lijst"></div>
 
     </section>
 
@@ -59,6 +46,7 @@
     <p>&copy; 2026 Kacper Krysiński - Alle rechten voorbehouden</p>
 </footer>
 
+<script src="js/projecten.js"></script>
 
 </body>
 </html>

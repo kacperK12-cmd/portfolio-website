@@ -49,6 +49,23 @@
     <p>Neem gerust contact met mij op via e-mail of LinkedIn.</p>
     <p>Email: <a href="mailto:25024418@student.hhs.nl">25024418@student.hhs.nl</a></p>
     <p>LinkedIn: <a href="https://www.linkedin.com/in/kacper-krysiński-9b8b8b2b/" target="_blank">Kacper Krysiński</a></p>
+
+    <form id="contactformulier" novalidate>
+        <label for="naam">Naam</label>
+        <input id="naam" name="naam" type="text">
+        <p id="naam-fout"></p>
+
+        <label for="email">E-mailadres</label>
+        <input id="email" name="email" type="email">
+        <p id="email-fout"></p>
+
+        <label for="bericht">Bericht</label>
+        <textarea id="bericht" name="bericht"></textarea>
+        <p id="bericht-fout"></p>
+
+        <button type="submit">Controleer bericht</button>
+        <p id="formulier-status"></p>
+    </form>
 </section>
 
     </main>
