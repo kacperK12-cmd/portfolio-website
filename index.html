@@ -44,6 +44,13 @@
     </p>
 </section>
 
+<section class="weer">
+    <h2>Weer in Den Haag</h2>
+    <div id="weer-resultaat" aria-live="polite">
+        Gegevens laden...
+    </div>
+</section>
+
 <section class="contact">
     <h2>Contact</h2>
     <p>Neem gerust contact met mij op via e-mail of LinkedIn.</p>
@@ -52,19 +59,19 @@
 
     <form id="contactformulier" novalidate>
         <label for="naam">Naam</label>
-        <input id="naam" name="naam" type="text">
-        <p id="naam-fout"></p>
+<input id="naam" name="naam" type="text" aria-describedby="naam-fout">
+<p id="naam-fout" aria-live="polite"></p>
 
-        <label for="email">E-mailadres</label>
-        <input id="email" name="email" type="email">
-        <p id="email-fout"></p>
+       <label for="email">E-mailadres</label>
+<input id="email" name="email" type="email" aria-describedby="email-fout">
+<p id="email-fout" aria-live="polite"></p>
 
         <label for="bericht">Bericht</label>
-        <textarea id="bericht" name="bericht"></textarea>
-        <p id="bericht-fout"></p>
+<textarea id="bericht" name="bericht" aria-describedby="bericht-fout"></textarea>
+<p id="bericht-fout" aria-live="polite"></p>
 
         <button type="submit">Controleer bericht</button>
-        <p id="formulier-status"></p>
+        <p id="formulier-status" role="status" aria-live="polite"></p>
     </form>
 </section>
 
@@ -73,6 +80,9 @@
     <footer>
         <p>&copy; 2026 Kacper Krysiński - Alle rechten voorbehouden</p>
     </footer>
+
+<script src="js/contact.js"></script>
+<script src="js/weer.js"></script>
 
 </body>
 </html>
