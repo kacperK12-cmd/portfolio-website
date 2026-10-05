@@ -1,11 +1,14 @@
 const formulier = document.querySelector("#contactformulier");
+
 const naam = document.querySelector("#naam");
 const naamFout = document.querySelector("#naam-fout");
 
 const email = document.querySelector("#email");
 const emailFout = document.querySelector("#email-fout");
+
 const bericht = document.querySelector("#bericht");
 const berichtFout = document.querySelector("#bericht-fout");
+
 const status = document.querySelector("#formulier-status");
 
 function controleerFormulier(event) {
@@ -42,7 +45,7 @@ if (
   email.checkValidity() &&
   bericht.value.trim().length >= 10
 ) {
-  status.textContent = "Je gegevens zijn geldig. Je bericht is niet verzonden.";
+  status.textContent = "Je bericht is verstuurd.";
 } else {
   status.textContent = "";
 }

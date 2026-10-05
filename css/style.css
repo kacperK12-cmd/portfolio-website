@@ -1,137 +1,583 @@
+/* BASIS */
+:root {
+    --navy: #101e35;
+    --navy-light: #1c3554;
+    --accent: #176078;
+    --text: #26364b;
+    --muted: #52647a;
+    --border: #dce5ef;
+    --shadow: 0 12px 36px rgba(16, 30, 53, 0.08);
+}
+
+* {
+    box-sizing: border-box;
+}
+
 body {
     margin: 0;
-    font-family: Arial, sans-serif;
     min-height: 100vh;
     display: flex;
     flex-direction: column;
+    font-family: "Segoe UI", Arial, sans-serif;
+    font-size: 16px;
+    line-height: 1.75;
+    color: var(--text);
+    background:
+        radial-gradient(
+            circle at 5% 0%,
+            rgba(103, 194, 218, 0.16),
+            transparent 35%
+        ),
+        #f2f5f9;
 }
 
+h1,
+h2,
+h3 {
+    color: var(--navy);
+    line-height: 1.2;
+}
+
+h1 {
+    margin: 0 0 20px;
+    font-size: clamp(2.5rem, 6vw, 4.5rem);
+    font-weight: 800;
+    letter-spacing: -0.055em;
+}
+
+h2 {
+    margin: 0 0 24px;
+    font-size: 1.65rem;
+    letter-spacing: -0.035em;
+}
+
+h3 {
+    margin: 0 0 16px;
+    font-size: 1.3rem;
+    letter-spacing: -0.025em;
+}
+
+p {
+    margin: 0 0 20px;
+}
+
+a {
+    color: var(--accent);
+    text-underline-offset: 4px;
+}
+
+a:hover {
+    color: #103f50;
+}
+
+/* NAVIGATIE */
 header {
-    background-color: #222;
-    padding: 20px 30px;
+    padding: 18px 30px;
+    background-color: var(--navy);
+    border-bottom: 1px solid #334761;
 }
 
 nav {
-    max-width: 1000px;
+    max-width: 1120px;
     margin: 0 auto;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 10px;
 }
 
 nav a {
-    color: white;
-    text-decoration: none;
-    margin-right: 25px;
+    padding: 10px 20px;
+    border: 1px solid transparent;
+    border-radius: 8px;
+    color: #dbe6f3;
+    font-size: 0.95rem;
     font-weight: 600;
+    text-decoration: none;
+    transition:
+        background-color 0.2s,
+        color 0.2s,
+        border-color 0.2s;
 }
 
 nav a:hover {
-    color: lightblue;
+    color: white;
+    background-color: #223650;
 }
 
 nav a.active {
-    color: lightblue;
+    color: #b9edf5;
+    background-color: #223b50;
+    border-color: #456679;
 }
 
+/* PAGINA */
 main {
-    max-width: 1000px;
+    width: 100%;
+    max-width: 1180px;
     margin: 0 auto;
-        padding: 40px 30px;
-        flex: 1;
+    padding: 56px 30px;
+    flex: 1;
 }
 
-article {
-    border: 1px solid #ccc;
-    padding: 20px;
-    margin-bottom: 20px;
-    border-radius: 8px;
-    background-color: #f7f7f7;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+main > p {
+    max-width: 720px;
+    margin-bottom: 38px;
+    color: var(--muted);
+    font-size: 1.1rem;
 }
 
-.tags span {
-    background-color: #eeeeee;
-    color: #222;
-    padding: 5px 10px;
-    border-radius: 5px;
-    margin-right: 5px;
-}
-
+/* INTRODUCTIE */
 .intro {
+    position: relative;
+    isolation: isolate;
     display: flex;
     align-items: center;
-    gap: 30px;
+    gap: 48px;
+    padding: 56px;
+    overflow: hidden;
+    background: linear-gradient(
+        125deg,
+        #101e35 0%,
+        #1c3554 65%,
+        #20536a 100%
+    );
+    border: 1px solid #304d68;
+    border-radius: 24px;
+    box-shadow: 0 22px 55px rgba(16, 30, 53, 0.18);
+}
+
+.intro::before {
+    content: "";
+    position: absolute;
+    z-index: -1;
+    width: 380px;
+    height: 380px;
+    top: -230px;
+    right: -90px;
+    border: 1px solid rgba(185, 237, 245, 0.2);
+    border-radius: 50%;
+    box-shadow:
+        0 0 0 45px rgba(185, 237, 245, 0.035),
+        0 0 0 90px rgba(185, 237, 245, 0.025);
+    pointer-events: none;
 }
 
 .intro img {
-    width: 200px;
-    height: 200px;
+    width: 220px;
+    height: 270px;
+    flex-shrink: 0;
     object-fit: cover;
-    border-radius: 10px;
+    border: 6px solid rgba(255, 255, 255, 0.15);
+    border-radius: 16px;
+    box-shadow: 0 16px 30px rgba(0, 0, 0, 0.22);
+}
+
+.intro-text {
+    min-width: 0;
+}
+
+.intro-text h1 {
+    color: white;
+    font-size: clamp(2.3rem, 4.5vw, 3.8rem);
+    margin-bottom: 16px;
 }
 
 .functieomschrijving {
-    color: #357f91;
-    font-size: 1.25rem;
+    margin-bottom: 24px;
+    color: #b9edf5;
+    font-size: 1rem;
     font-weight: 600;
-    margin: 0.5rem 0 1rem;
+    letter-spacing: 0.025em;
 }
 
-.button {
-    display: inline-block;
-    background-color: lightblue;
-    color: #222;
-    text-decoration: none;
-    padding: 10px 15px;
-    border-radius: 5px;
+.intro-text > p:not(.functieomschrijving) {
+    max-width: 650px;
+    color: #dbe6f3;
+    line-height: 1.85;
+    margin-bottom: 28px;
 }
 
-.vaardigheden {
-    border: 1px solid #ccc;
-    padding: 20px;
-    margin-top: 30px;
-    border-radius: 8px;
-    background-color: #f7f7f7;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
-}
-
-.contact {
-    border: 1px solid #ccc;
-    padding: 20px;
-    margin-top: 30px;
-    border-radius: 8px;
-    background-color: #f7f7f7;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
-}
-
-footer {
-    background-color: #222;
+/* KNOPPEN */
+.button,
+#eerste-blog-knop,
+#contactformulier button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 13px 22px;
+    border: 1px solid var(--accent);
+    border-radius: 9px;
+    background-color: var(--accent);
     color: white;
-    text-align: center;
-    padding: 20px;
-    margin-top: 40px;
+    font: inherit;
+    font-size: 0.95rem;
+    font-weight: 700;
+    line-height: 1.5;
+    text-decoration: none;
+    cursor: pointer;
+    box-shadow: 0 5px 12px rgba(23, 96, 120, 0.15);
+    transition:
+        background-color 0.2s,
+        border-color 0.2s,
+        box-shadow 0.2s;
 }
 
-/* Mobiel */
-@media (max-width: 480px) {
+.button:hover,
+#eerste-blog-knop:hover,
+#contactformulier button:hover {
+    color: white;
+    background-color: #10485b;
+    border-color: #10485b;
+    box-shadow: 0 7px 18px rgba(23, 96, 120, 0.22);
+}
 
-    main {
-        padding: 15px;
+.intro .button {
+    background-color: #b9edf5;
+    border-color: #b9edf5;
+    color: var(--navy);
+    box-shadow: none;
+}
+
+.intro .button:hover {
+    background-color: white;
+    border-color: white;
+    color: var(--navy);
+}
+
+#eerste-blog-knop {
+    margin-bottom: 20px;
+}
+
+/* SECTIES */
+.vaardigheden,
+.weer,
+.contact {
+    margin-top: 30px;
+    padding: 34px;
+    background-color: white;
+    border: 1px solid var(--border);
+    border-radius: 18px;
+    box-shadow: var(--shadow);
+}
+
+.vaardigheden h2,
+.weer h2,
+.contact h2 {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.vaardigheden h2::before,
+.weer h2::before,
+.contact h2::before {
+    content: "";
+    width: 5px;
+    height: 24px;
+    flex-shrink: 0;
+    border-radius: 4px;
+    background-color: var(--accent);
+}
+
+.vaardigheden .tags {
+    margin: 0;
+}
+
+#weer-resultaat {
+    padding: 18px 22px;
+    border: 1px solid #d7e9ef;
+    border-radius: 10px;
+    background-color: #eff7fa;
+    color: #215569;
+    font-weight: 600;
+}
+
+#weer-resultaat p {
+    margin: 0;
+}
+
+.contact > p {
+    color: var(--muted);
+}
+
+.contact a {
+    font-weight: 600;
+    overflow-wrap: anywhere;
+}
+
+/* PROJECTENFILTER */
+label[for="project-filter"] {
+    display: block;
+    margin-bottom: 10px;
+    color: var(--navy);
+    font-size: 0.95rem;
+    font-weight: 700;
+}
+
+#project-filter {
+    min-width: 260px;
+    max-width: 100%;
+    margin-bottom: 30px;
+    padding: 14px 18px;
+    border: 1px solid #9aacbf;
+    border-radius: 10px;
+    background-color: white;
+    color: var(--text);
+    font: inherit;
+    font-size: 0.95rem;
+    cursor: pointer;
+    box-shadow: 0 4px 12px rgba(16, 30, 53, 0.04);
+}
+
+/* PROJECTKAARTEN */
+#projecten-lijst {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 24px;
+}
+
+article {
+    padding: 32px;
+    margin-bottom: 24px;
+    background-color: white;
+    border: 1px solid var(--border);
+    border-top: 4px solid var(--accent);
+    border-radius: 16px;
+    box-shadow: 0 6px 22px rgba(16, 30, 53, 0.05);
+    transition:
+        border-color 0.2s,
+        box-shadow 0.2s;
+}
+
+article:hover {
+    border-color: #9cbfce;
+    border-top-color: var(--accent);
+    box-shadow: 0 14px 32px rgba(16, 30, 53, 0.1);
+}
+
+#projecten-lijst article {
+    min-width: 0;
+    display: flex;
+    flex-direction: column;
+    margin: 0;
+}
+
+article > p:not(.tags):not(.meta) {
+    color: var(--muted);
+}
+
+article > :last-child {
+    margin-bottom: 0;
+}
+
+#projecten-lijst article .tags {
+    margin-top: auto;
+    padding-top: 20px;
+}
+
+.meta {
+    margin-bottom: 16px;
+    color: #647287;
+    font-size: 0.85rem;
+}
+
+/* LABELS */
+.tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 9px;
+    margin-top: 22px;
+}
+
+.tags span {
+    display: inline-block;
+    padding: 6px 12px;
+    border: 1px solid #d5e7ee;
+    border-radius: 7px;
+    background-color: #edf6f9;
+    color: #215569;
+    font-size: 0.82rem;
+    font-weight: 600;
+}
+
+.vaardigheden .tags span {
+    padding: 9px 18px;
+    font-size: 0.95rem;
+}
+
+/* CONTACTFORMULIER */
+#contactformulier {
+    max-width: 680px;
+    margin-top: 30px;
+    padding-top: 28px;
+    border-top: 1px solid var(--border);
+}
+
+#contactformulier label {
+    display: block;
+    margin-bottom: 8px;
+    color: var(--navy);
+    font-size: 0.95rem;
+    font-weight: 600;
+}
+
+#contactformulier input,
+#contactformulier textarea {
+    display: block;
+    width: 100%;
+    padding: 14px 16px;
+    border: 2px solid #a6b6c8;
+    border-radius: 9px;
+    background-color: #fbfcfe;
+    color: var(--text);
+    font: inherit;
+    transition:
+        border-color 0.2s,
+        background-color 0.2s;
+}
+
+#contactformulier textarea {
+    min-height: 160px;
+    resize: vertical;
+}
+
+#contactformulier input:focus,
+#contactformulier textarea:focus {
+    border-color: var(--accent);
+    background-color: white;
+}
+
+#naam-fout,
+#email-fout,
+#bericht-fout {
+    min-height: 1.2em;
+    margin: 7px 0 18px;
+    color: #b00020;
+    font-size: 0.85rem;
+    font-weight: 600;
+}
+
+#contactformulier [aria-invalid="true"] {
+    border-color: #b00020;
+}
+
+#formulier-status {
+    margin: 18px 0 0;
+    color: var(--text);
+    font-size: 0.95rem;
+    font-weight: 600;
+}
+
+/* TOETSENBORD */
+a:focus-visible,
+button:focus-visible,
+input:focus-visible,
+textarea:focus-visible,
+select:focus-visible {
+    outline: 3px solid var(--accent);
+    outline-offset: 4px;
+}
+
+nav a:focus-visible,
+.intro .button:focus-visible {
+    outline-color: #b9edf5;
+}
+
+/* FOOTER */
+footer {
+    margin-top: 24px;
+    padding: 30px 20px;
+    border-top: 1px solid #334761;
+    background-color: var(--navy);
+    color: #dbe6f3;
+    text-align: center;
+    font-size: 0.85rem;
+}
+
+footer p {
+    margin: 0;
+}
+
+/* TABLET */
+@media (max-width: 800px) {
+    .intro {
+        gap: 30px;
+        padding: 34px;
     }
 
+    .intro img {
+        width: 160px;
+        height: 210px;
+    }
+
+    #projecten-lijst {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* MOBIEL */
+@media (max-width: 600px) {
     header {
-        padding: 15px;
+        padding: 14px 16px;
+    }
+
+    nav {
+        gap: 6px;
     }
 
     nav a {
-        margin-right: 10px;
+        padding: 8px 12px;
+        font-size: 0.9rem;
+    }
+
+    main {
+        padding: 28px 16px;
     }
 
     .intro {
         flex-direction: column;
         align-items: flex-start;
+        gap: 26px;
+        padding: 28px;
+        border-radius: 18px;
     }
 
     .intro img {
         width: 150px;
-        height: 150px;
+        height: 185px;
+    }
+
+    .intro-text h1 {
+        font-size: 2.4rem;
+    }
+
+    .vaardigheden,
+    .weer,
+    .contact,
+    article {
+        padding: 24px;
+    }
+
+    h2 {
+        font-size: 1.35rem;
+    }
+
+    #project-filter {
+        width: 100%;
+        min-width: 0;
+    }
+
+    #projecten-lijst {
+        gap: 20px;
+    }
+}
+
+/* MINDER BEWEGING */
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        transition: none;
     }
 }
